@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+
+ <div id="tableArea"></div>
+
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/NarTable.js"></script>
+
+    <script>
+        let arr = [
+            "ID", 
+            "TC", 
+            "Ad Soyad", 
+            "E-mail", 
+            "Telefon", 
+            "Kayıt Tarihi", 
+            "Hesap Statüsü",
+            "Hesap Durumu"
+        ]
+
+        let search = [
+            {
+                "method": "post",
+                "url": "http://localhost:8080/Uni/searchapi",
+                "key": "kurumad",
+                "desc": "İsim bazlı arama"
+            },
+            {
+                "method": "post",
+                "url": "http://localhost:8080/Uni/searchapi",
+                "key": "kurumad",
+                "desc": "ID bazlı arama"
+            }
+        ]
+
+        let table = new NarTable(arr, "tableArea", search);
+
+    </script>
+
+
+
+</body>
+</html>
