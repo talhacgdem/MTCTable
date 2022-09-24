@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        #table-footer .stats{
+            display: table;
+        }
+        #table-footer .stats span{
+            display: table-row;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,33 +28,39 @@
     <script src="js/NarTable.js"></script>
 
     <script>
-        let arr = [
-            "ID", 
-            "TC", 
-            "Ad Soyad", 
-            "E-mail", 
-            "Telefon", 
-            "Kayıt Tarihi", 
-            "Hesap Statüsü",
-            "Hesap Durumu"
-        ]
+
+        let arr3 = {
+         "index": [
+         "birth_date","first_name","last_name","gender","hire_date","emp_no"
+         ],
+         "desc": [
+         "Doğum Tarihi","Ad","Soyad","Cinsiyet","İşe Başlama","ID"
+         ] 
+        }
 
         let search = [
             {
                 "method": "post",
-                "url": "http://localhost:8080/Uni/searchapi",
-                "key": "kurumad",
+                "url": "http://localhost/fakeapi/search.php",
+                "key": "word",
                 "desc": "İsim bazlı arama"
             },
             {
                 "method": "post",
-                "url": "http://localhost:8080/Uni/searchapi",
-                "key": "kurumad",
+                "url": "http://localhost/fakeapi/search.php",
+                "key": "id",
                 "desc": "ID bazlı arama"
             }
         ]
 
-        let table = new NarTable(arr, "tableArea", search);
+        let config = {
+            "indexes": arr3,
+            "search": search,
+            "parent": "tableArea",
+            "main": "http://localhost/fakeapi/"
+         }
+
+        let table = new NarTable(config);
 
     </script>
 
